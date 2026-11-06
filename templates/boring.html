@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- vacancy: {{COMPANY}} — {{ROLE}} — {{DATE}} — mode: boring -->
+<title>{{FULL_NAME}} — {{HEADLINE}} — Resume</title>
+<style>
+  @page { size: A4; margin: 14mm 16mm; }
+  html { font-kerning: none; font-feature-settings: "kern" 0, "liga" 0; }
+  body { font-family: Arial, Helvetica, sans-serif; font-size: 9.8pt; line-height: 1.38; color: #000; margin: 0; }
+  a { color: #1155cc; text-decoration: underline; }
+  .head { text-align: center; margin: 0 0 4mm; }
+  .head h1 { font-family: Georgia, "Times New Roman", serif; font-size: 16pt; font-weight: 700; margin: 0; }
+  .head .role { font-family: Georgia, "Times New Roman", serif; font-size: 12pt; margin: 0.6mm 0 1.6mm; }
+  .head .contacts { margin: 0; }
+  .head p { text-align: center; }
+  h2 { font-family: Georgia, "Times New Roman", serif; font-size: 12.5pt; font-weight: 700; margin: 4.4mm 0 1.6mm; }
+  h3 { font-size: 10pt; font-weight: 700; margin: 3.4mm 0 1mm; }
+  h3.job { font-size: 10.2pt; }
+  h3.job a { font-weight: 700; }
+  p { margin: 0 0 1.4mm; text-align: justify; }
+  ul { list-style: none; margin: 0 0 1.6mm; padding: 0; }
+  li { margin: 0 0 0.6mm; padding-left: 3mm; text-indent: -3mm; }
+  li::before { content: "- "; }
+  .entry { break-inside: avoid; }
+  h2, h3 { break-after: avoid; }
+</style>
+</head>
+<body>
+  <header class="head">
+    <h1>{{FULL_NAME}}</h1>
+    <p class="role" data-field="headline">{{HEADLINE}}</p>
+    <p class="contacts"><a href="mailto:{{EMAIL}}">{{EMAIL}}</a> | <a href="{{LINKEDIN_URL}}">{{LINKEDIN_URL}}</a> | <a href="{{OTHER_CONTACT_URL}}">{{OTHER_CONTACT}}</a> | {{PHONE}}</p>
+  </header>
+
+  <h2>Professional Summary</h2>
+  <p data-field="summary">{{SUMMARY: 3–5 sentences — role and years, where you worked, what you do, 2–3 recent results with numbers}}</p>
+
+  <h2>Professional Experience</h2>
+
+  <!-- REPEAT: company with several directions (delete if none) -->
+  <h3 class="job"><a href="{{COMPANY_URL}}">{{COMPANY}}</a> | {{START}} – {{END}}</h3>
+  <p>{{COMPANY_ABOUT: what the company is, scale; N people in K teams}}</p>
+
+  <!-- REPEAT: direction -->
+  <div class="entry" data-block="{{company-direction}}">
+    <h3>{{ROLE}}, {{DIRECTION}}</h3>
+    <p>As {{ROLE}}, I was responsible for {{PRODUCT: what it is, for whom, scale}}. {{What you owned: research, roadmap, metrics}}. The goal was {{GOAL}}. Cross-functional leadership of {{N}} people in {{K}} teams.</p>
+    <ul data-field="results">
+      <li>{{Verb + what you did}}: {{metric before → after}}.</li>
+      <li>{{Verb + what you did}}: {{metric before → after}}.</li>
+    </ul>
+  </div>
+  <!-- /REPEAT: direction -->
+  <!-- /REPEAT: company with several directions -->
+
+  <!-- REPEAT: company -->
+  <div class="entry" data-block="{{company}}">
+    <h3 class="job"><a href="{{COMPANY_URL}}">{{COMPANY}}</a> | {{START}} – {{END}}</h3>
+    <p>As {{ROLE}}, I owned {{what you owned}} for {{PRODUCT: what it is, for whom}}. The goal was {{GOAL}}. Cross-functional leadership of {{N}} people.</p>
+    <ul data-field="results">
+      <li>{{Verb + what you did}}: {{metric before → after}}.</li>
+      <li>{{Verb + what you did}}: {{metric before → after}}.</li>
+    </ul>
+  </div>
+  <!-- /REPEAT: company -->
+
+  <div class="entry">
+    <h2>Education</h2>
+    <p>{{DEGREE}}, {{UNIVERSITY}}, {{YEAR}}</p>
+  </div>
+
+  <div class="entry">
+    <h2>Certificates</h2>
+    <p>{{CERT}}, {{ISSUER}}, {{DATE}}</p>
+  </div>
+
+  <div class="entry">
+    <h2>Skills</h2>
+    <p data-field="skills">{{SKILLS: one line, comma-separated, in the vacancy's words}}</p>
+  </div>
+</body>
+</html>

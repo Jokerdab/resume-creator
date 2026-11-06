@@ -1,0 +1,32 @@
+title: Senior Technical Product Manager
+years: 5
+# weight 3 = must-have from requirements, 2 = tasks, 1 = nice wording
+3 | platform | platforms
+3 | shared capabilities | shared platform, shared modules, shared systems
+3 | engineering | engineers
+3 | adoption | adopt
+3 | technical debt | tech debt, legacy
+3 | trade-offs | trade-off, tradeoffs
+3 | mobile | iOS, Android, mobile app
+3 | experimentation | A/B, experiment
+2 | roadmap |
+2 | vision |
+2 | strategy |
+2 | migration | migrations, migrate
+2 | performance |
+2 | reliability | reliable
+2 | scalability | scale
+2 | instrumentation | instrumented, analytics events
+2 | design systems | design system
+2 | user research | custdev, research
+2 | data science | data
+2 | success measures | success metric, metrics
+2 | feedback |
+2 | prototypes | prototype, prototyping, MVP
+2 | consumer | consumer apps, consumer products
+2 | backend | back-end, microservices, services
+2 | dependencies | dependency
+1 | simplification | simplify, simplified
+1 | alignment | aligned
+1 | user interface | UI
+1 | design |

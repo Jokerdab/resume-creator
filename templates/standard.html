@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- vacancy: {{COMPANY}} — {{ROLE}} — {{DATE}} -->
+<title>{{FULL_NAME}} — {{HEADLINE}} — Resume</title>
+<style>
+  @page { size: A4; margin: 12mm 14mm; }
+  * { box-sizing: border-box; }
+  html { font-kerning: none; font-feature-settings: "kern" 0, "liga" 0; }
+  body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #1f1f1f;
+    font-size: 10.3pt;
+    line-height: 1.4;
+    max-width: 184mm;
+    margin: 12mm auto;
+  }
+  a { color: #2F6FA3; text-decoration: none; }
+  .head h1 {
+    margin: 0;
+    font-size: 24pt;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: #111;
+    line-height: 1.05;
+  }
+  .headline {
+    margin: 1.6mm 0 0;
+    font-size: 13pt;
+    font-weight: 600;
+    color: #111;
+  }
+  .headline span {
+    text-decoration: underline wavy #8FB3D3;
+    text-decoration-thickness: 1.4px;
+    text-underline-offset: 2.2mm;
+  }
+  .contacts { margin: 3.6mm 0 0; font-size: 9.6pt; color: #444; }
+  .contacts span + span { margin-left: 4.2mm; }
+  .ico { width: 3.3mm; height: 3.3mm; vertical-align: -0.45mm; margin-right: 1mm; }
+  .kpis {
+    display: flex;
+    gap: 9mm;
+    margin: 4.6mm 0 0;
+    padding: 3.2mm 0 0;
+    border-top: 1px solid #E3E6EA;
+  }
+  .kpi b { display: block; font-size: 17pt; font-weight: 700; color: #111; line-height: 1.1; letter-spacing: -0.01em; }
+  .kpi span { display: block; margin-top: 0.6mm; font-size: 8.8pt; color: #6B7280; }
+  .summary { margin: 3.4mm 0 0; color: #333; }
+  h2 {
+    margin: 6mm 0 1.8mm;
+    padding-bottom: 1mm;
+    border-bottom: 1px solid #D5DAE0;
+    color: #111;
+    font-size: 13pt;
+    font-weight: 700;
+  }
+  h2.section { margin: 4mm 0 0; padding-bottom: 0.8mm; font-size: 11pt; text-transform: uppercase; letter-spacing: 0.06em; color: #6B7280; }
+  h2.section + h2.job { margin-top: 2.4mm; }
+  h2.section + .summary { margin-top: 1.6mm; }
+  h2.job { display: flex; justify-content: space-between; align-items: baseline; gap: 6mm; }
+  h2.job .role { font-weight: 600; }
+  .dates { color: #6B7280; white-space: nowrap; font-size: 9.6pt; font-weight: 400; }
+  .edu-row, .cert-row { display: flex; justify-content: space-between; align-items: baseline; gap: 8mm; }
+  .edu-main, .cert-main { font-weight: 650; color: #111; }
+  .sub { margin: 0.2mm 0 1.2mm; color: #6B7280; }
+  h3 { margin: 3.6mm 0 0.6mm; color: #111; font-size: 11.2pt; font-weight: 650; }
+  h3 .area { color: #2F6FA3; }
+  .team { margin: 0.6mm 0 0; color: #6B7280; font-size: 9.6pt; font-weight: 600; }
+  p { margin: 0.6mm 0 0; }
+  ul { margin: 0.8mm 0 0; padding: 0 0 0 4.5mm; }
+  li { margin: 0 0 0.7mm; }
+  li::marker { color: #8FB3D3; }
+  section { break-inside: avoid; }
+  h2, h3 { break-after: avoid; }
+  .pills { display: flex; flex-wrap: wrap; gap: 2mm 2.2mm; margin: 1.2mm 0 0; padding: 0; list-style: none; }
+  .pills li {
+    background: #EEF3F8;
+    color: #1f1f1f;
+    border-radius: 999px;
+    padding: 1.15mm 3.4mm;
+    font-size: 9.8pt;
+    line-height: 1.25;
+    margin: 0;
+  }
+</style>
+</head>
+<body>
+  <header class="head">
+    <h1>{{FULL_NAME}}</h1>
+    <p class="headline"><span data-field="headline">{{HEADLINE}}</span></p>
+    <p class="contacts">
+      <span>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#2F6FA3" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 7 9-7"/></svg><a href="mailto:{{EMAIL}}">{{EMAIL}}</a>
+      </span>
+      <span>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#2F6FA3" stroke-width="2"><path d="M6 3h3l2 5-2 1a12 12 0 0 0 6 6l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2z"/></svg>{{PHONE}}
+      </span>
+      <span>
+        <svg class="ico" viewBox="0 0 24 24" fill="#2F6FA3"><path d="M4.7 3.3A2.2 2.2 0 0 0 2.5 5.5v13a2.2 2.2 0 0 0 2.2 2.2h13a2.2 2.2 0 0 0 2.2-2.2v-13a2.2 2.2 0 0 0-2.2-2.2h-13zM8.3 18.2H5.7V9.4h2.6v8.8zM7 8.2a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm11.2 10h-2.6v-4.3c0-1 0-2.3-1.4-2.3s-1.6 1.1-1.6 2.2v4.4H10v-8.8h2.5v1.2h.1c.3-.7 1.2-1.4 2.5-1.4 2.7 0 3.2 1.8 3.2 4.1v4.9z"/></svg><a href="{{LINKEDIN_URL}}">{{LINKEDIN_URL_SHORT: linkedin.com/in/…}}</a>
+      </span>
+      <span>
+        <svg class="ico" viewBox="0 0 24 24" fill="#2F6FA3"><path d="M21.4 3.6 2.9 10.8c-1.1.4-1.1 1.6 0 1.9l4.6 1.5 1.8 5.6c.2.7 1.1.9 1.6.4l2.6-2.4 4.9 3.6c.6.4 1.5.1 1.6-.6l3.1-15c.2-1-.7-1.6-1.7-1.2zM9.8 14.4l8.3-7.3-6.6 8.3-.4 3-1.3-4z"/></svg><a href="{{OTHER_CONTACT_URL}}">{{OTHER_CONTACT}}</a>
+      </span>
+    </p>
+    <div class="kpis" data-field="kpis">
+      <div class="kpi"><b>{{KPI_1}}</b><span>{{KPI_1_LABEL}}</span></div>
+      <div class="kpi"><b>{{KPI_2}}</b><span>{{KPI_2_LABEL}}</span></div>
+      <div class="kpi"><b>{{KPI_3}}</b><span>{{KPI_3_LABEL}}</span></div>
+      <div class="kpi"><b>{{KPI_4}}</b><span>{{KPI_4_LABEL}}</span></div>
+    </div>
+  </header>
+
+  <h2 class="section">Summary</h2>
+  <p class="summary" data-field="summary">{{SUMMARY: ≤3 lines, years + domains + 2–3 results with numbers}}</p>
+
+  <h2 class="section">Experience</h2>
+
+  <!-- REPEAT: company with several directions (delete if none) -->
+  <h2 class="job"><span><a href="{{COMPANY_URL}}">{{COMPANY}}</a> • {{INDUSTRY}}</span><span class="dates">{{START}} — {{END}}</span></h2>
+  <p>{{COMPANY_ABOUT: what the company is, scale; N people in K teams}}</p>
+
+  <!-- REPEAT: direction -->
+  <section data-block="{{company-direction}}">
+    <h3><span data-field="role">{{ROLE}}</span> • <span class="area">{{DIRECTION}}</span></h3>
+    <p data-field="intro">{{PRODUCT: what it is, for whom, scale}}. Goal: {{GOAL}}.</p>
+    <p class="team" data-field="team">Cross-functional leadership of {{N}} people in {{K}} teams</p>
+    <ul data-field="results">
+      <li>{{Verb + what you did}}: {{metric before → after}}.</li>
+      <li>{{Verb + what you did}}: {{metric before → after}}.</li>
+    </ul>
+  </section>
+  <!-- /REPEAT: direction -->
+  <!-- /REPEAT: company with several directions -->
+
+  <!-- REPEAT: company -->
+  <h2 class="job"><span><a href="{{COMPANY_URL}}">{{COMPANY}}</a> • {{INDUSTRY}} • <span class="role" data-field="role">{{ROLE}}</span></span><span class="dates">{{START}} — {{END}}</span></h2>
+  <section data-block="{{company}}">
+    <p data-field="intro">{{PRODUCT: what it is, for whom, scale}}. Goal: {{GOAL}}.</p>
+    <p class="team" data-field="team">Cross-functional leadership of {{N}} people</p>
+    <ul data-field="results">
+      <li>{{Verb + what you did}}: {{metric before → after}}.</li>
+      <li>{{Verb + what you did}}: {{metric before → after}}.</li>
+    </ul>
+  </section>
+  <!-- /REPEAT: company -->
+
+  <h2>Education and certificates</h2>
+  <div class="edu-row">
+    <span class="edu-main">{{DEGREE}}</span>
+    <span class="dates">{{YEAR}}</span>
+  </div>
+  <p class="sub">{{UNIVERSITY}}</p>
+
+  <!-- REPEAT: certificate -->
+  <div class="cert-row">
+    <span class="cert-main">{{CERT}}</span>
+    <span class="dates">{{DATE}}</span>
+  </div>
+  <p class="sub">{{ISSUER}}</p>
+  <!-- /REPEAT: certificate -->
+
+  <h2>Core skills</h2>
+  <ul class="pills" data-field="skills">
+    <li>{{SKILL_1}}</li>
+    <li>{{SKILL_2}}</li>
+    <li>{{SKILL_3}}</li>
+    <li>{{SKILL_4}}</li>
+    <li>{{SKILL_5}}</li>
+    <li>{{SKILL_6}}</li>
+  </ul>
+</body>
+</html>

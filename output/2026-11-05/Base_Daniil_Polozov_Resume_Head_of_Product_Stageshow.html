@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- design test: Stageshow look (benjitaylor/skills) applied to the short resume -->
+<title>Daniil Polozov — Head of Product — Resume (Stageshow test)</title>
+<style>
+  @page { size: A4; margin: 12mm 0; background: #f6f5f4; }
+  * { box-sizing: border-box; }
+  html { font-kerning: none; font-feature-settings: "kern" 0, "liga" 0; }
+  :root {
+    --ss-canvas: #f6f5f4;
+    --ss-surface: #fff;
+    --ss-well: #efeeec;
+    --ss-line: rgba(0, 0, 0, 0.06);
+    --ss-text: #6e6e72;
+    --ss-text-body: #3a3a3d;
+    --ss-text-strong: #262628;
+    --ss-text-faint: #9a9a9d;
+    --ss-accent: #3b82f6;
+    --ss-accent-soft: rgba(59, 130, 246, 0.12);
+    --ss-accent-text: #2563c9;
+    --ss-success-soft: rgba(34, 197, 94, 0.12);
+    --ss-success-text: #15803d;
+    --ss-ring: 1px solid rgba(0, 0, 0, 0.07);
+    --ss-shadow-window: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 4px 16px rgba(0, 0, 0, 0.08);
+    --ss-shadow-satellite: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 14px 32px -8px rgba(50, 50, 93, 0.24), 0 4px 10px -4px rgba(0, 0, 0, 0.1);
+    --ss-radius-md: 8px;
+    --ss-radius-window: 12px;
+    --ss-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  i { font-style: normal; }
+  html, body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    margin: 0;
+    background: var(--ss-canvas);
+    font-family: var(--ss-font);
+    color: var(--ss-text-body);
+    font-size: 9.6pt;
+    line-height: 1.42;
+  }
+  .page { width: 210mm; padding: 1mm 13mm 0; }
+  a { color: var(--ss-accent-text); text-decoration: none; }
+
+  .head { display: flex; justify-content: space-between; align-items: flex-end; gap: 8mm; }
+  .head h1 { margin: 0; font-size: 25pt; font-weight: 700; letter-spacing: -0.02em; color: var(--ss-text-strong); line-height: 1; }
+  .role { margin: 2mm 0 0; font-size: 12.5pt; font-weight: 600; color: var(--ss-text-strong); }
+  .role span { color: var(--ss-text); font-weight: 500; }
+  .contacts { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 1.6mm; max-width: 92mm; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 1.4mm;
+    padding: 1.1mm 2.6mm; border-radius: 999px;
+    background: var(--ss-surface); border: var(--ss-ring);
+    font-size: 8.6pt; color: var(--ss-text-strong); white-space: nowrap;
+  }
+  .chip svg { width: 3.2mm; height: 3.2mm; }
+  .summary { margin: 4mm 0 0; font-size: 10.6pt; line-height: 1.45; color: var(--ss-text); max-width: 172mm; }
+  .summary b { color: var(--ss-text-strong); font-weight: 600; }
+
+  /* Bento: one hero, neighbors of different kinds, one frame family */
+  .bento {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3mm; margin: 4.5mm 0 0;
+  }
+  .tile {
+    position: relative; overflow: hidden;
+    background: var(--ss-surface); border-radius: var(--ss-radius-window);
+    border: var(--ss-ring); padding: 3.6mm;
+    min-height: 37mm;
+  }
+  .tile .lead { margin: 0; font-size: 10.4pt; line-height: 1.3; color: var(--ss-text); }
+  .tile .lead b { color: var(--ss-text-strong); font-weight: 600; }
+  .stat { margin: 2.4mm 0 0; font-size: 32pt; font-weight: 700; letter-spacing: -0.03em; color: var(--ss-text-strong); line-height: 1; white-space: nowrap; }
+  .stat small { font-size: 13pt; letter-spacing: 0; font-weight: 600; color: var(--ss-text); margin-left: 1mm; }
+
+  .hero { grid-column: span 2; background: var(--ss-well); padding: 3.6mm 0 0 3.6mm; }
+  .hero .lead { padding-right: 4mm; }
+  .window {
+    margin: 3.4mm 0 0; border-radius: var(--ss-radius-window) 0 0 0;
+    background: var(--ss-surface); border: var(--ss-ring); border-right: 0; border-bottom: 0;
+    height: 30.5mm; overflow: hidden;
+  }
+  .window__bar { display: flex; align-items: center; gap: 1.6mm; height: 7mm; padding: 0 3mm; border-bottom: 1px solid var(--ss-line); }
+  .dot { width: 2.3mm; height: 2.3mm; border-radius: 50%; }
+  .window__title { margin-left: 3mm; font-size: 8pt; color: var(--ss-text-faint); }
+  .window__body { display: flex; gap: 4mm; padding: 3mm 4mm 0; }
+  .metric b { display: block; font-size: 17pt; font-weight: 700; color: var(--ss-text-strong); letter-spacing: -0.02em; white-space: nowrap; }
+  .metric span { font-size: 8pt; color: var(--ss-text-faint); }
+  .badge { display: inline-block; margin-top: 1.4mm; padding: 0.4mm 2mm; border-radius: 999px; font-size: 8pt; font-weight: 600; background: var(--ss-success-soft); color: var(--ss-success-text); }
+  .window__body svg { flex: 1; height: 21mm; }
+
+  .segmented { display: flex; margin: 3mm 0 0; padding: 0.8mm; border-radius: var(--ss-radius-md); background: var(--ss-well); }
+  .segmented span { flex: 1; text-align: center; padding: 1.4mm 0; font-size: 8.4pt; color: var(--ss-text); border-radius: 6px; white-space: nowrap; }
+  .segmented .on { background: var(--ss-surface); color: var(--ss-text-strong); font-weight: 600; border: var(--ss-ring); }
+  .seg-row { display: flex; justify-content: space-between; align-items: center; margin: 3mm 0 0; font-size: 8.6pt; color: var(--ss-text); }
+
+  .object { background: #eef3fb; }
+  .receipt {
+    position: absolute; left: 5mm; right: -3mm; bottom: -4mm;
+    background: var(--ss-surface); border-radius: 10px; border: var(--ss-ring);
+    padding: 3mm 4mm 6mm;
+  }
+  .receipt .row { display: flex; justify-content: space-between; font-size: 8pt; color: var(--ss-text-faint); }
+  .receipt b { display: block; margin: 1mm 0 0; font-size: 19pt; font-weight: 700; color: var(--ss-text-strong); letter-spacing: -0.02em; }
+  .receipt .ok { margin-top: 1.4mm; display: inline-block; padding: 0.4mm 2mm; border-radius: 999px; font-size: 7.8pt; font-weight: 600; background: var(--ss-accent-soft); color: var(--ss-accent-text); }
+
+  /* Experience */
+  h2 { margin: 5mm 0 2mm; font-size: 8.4pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ss-text-faint); font-weight: 600; }
+  .card { background: var(--ss-surface); border-radius: var(--ss-radius-window); border: var(--ss-ring); padding: 3.6mm 4.4mm; margin: 0 0 3mm; break-inside: avoid; }
+  .card__head { display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; }
+  .card__head h3 { margin: 0; font-size: 12pt; font-weight: 700; color: var(--ss-text-strong); letter-spacing: -0.01em; }
+  .card__head h3 span { font-weight: 500; color: var(--ss-text); }
+  .dates { font-size: 8.6pt; color: var(--ss-text-faint); white-space: nowrap; }
+  .about { margin: 0.8mm 0 0; color: var(--ss-text); }
+  .line { margin: 2.6mm 0 0; padding: 2.6mm 0 0; border-top: 1px solid var(--ss-line); break-inside: avoid; }
+  .line:first-of-type { border-top: 0; padding-top: 0; }
+  .line__head { display: flex; align-items: center; gap: 2mm; flex-wrap: wrap; }
+  .line__head h4 { margin: 0; font-size: 10.4pt; font-weight: 650; color: var(--ss-text-strong); }
+  .line__head h4 em { font-style: normal; color: var(--ss-accent-text); }
+  .team { padding: 0.3mm 2mm; border-radius: 999px; background: var(--ss-well); font-size: 7.8pt; color: var(--ss-text); white-space: nowrap; }
+  ul { margin: 1.4mm 0 0; padding: 0 0 0 4mm; }
+  li { margin: 0 0 0.8mm; }
+  li::marker { color: #b9c9de; }
+  li b { color: var(--ss-text-strong); font-weight: 600; }
+
+  .foot { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; break-inside: avoid; }
+  .foot .card { margin: 0; }
+  .kv { display: flex; justify-content: space-between; gap: 3mm; margin: 1.6mm 0 0; }
+  .kv b { color: var(--ss-text-strong); font-weight: 600; }
+  .kv span { color: var(--ss-text-faint); font-size: 8.6pt; white-space: nowrap; }
+  .kv + .sub { margin: 0; color: var(--ss-text); font-size: 8.8pt; }
+  .pills { display: flex; flex-wrap: wrap; gap: 1.6mm; margin: 2mm 0 0; padding: 0; list-style: none; }
+  .pills li { margin: 0; padding: 1mm 2.8mm; border-radius: 999px; background: var(--ss-well); color: var(--ss-text-strong); font-size: 8.6pt; }
+  .label { margin: 0; font-size: 8.4pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ss-text-faint); font-weight: 600; }
+  .checks { list-style: none; margin: 2.6mm 0 0; padding: 0; }
+  .checks li { position: relative; margin: 0 0 1.2mm; padding-left: 5mm; font-size: 8.8pt; color: var(--ss-text-strong); }
+  .checks li::before { content: ""; position: absolute; left: 0; top: 0.7mm; width: 3.2mm; height: 3.2mm; border-radius: 50%; background: var(--ss-accent-soft); }
+  .checks li::after { content: ""; position: absolute; left: 1.05mm; top: 1.45mm; width: 1.1mm; height: 0.6mm; border-left: 1.3px solid var(--ss-accent-text); border-bottom: 1.3px solid var(--ss-accent-text); transform: rotate(-45deg); }
+  .seg-row { margin-top: 2.2mm !important; padding-top: 2.2mm; border-top: 1px solid var(--ss-line); }
+  .intro { margin: 1mm 0 0; color: var(--ss-text); }
+  .card--split { break-inside: auto; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="head">
+    <div>
+      <h1>Daniil Polozov</h1>
+      <p class="role">Head of Product</p>
+    </div>
+    <div class="contacts">
+      <a class="chip" href="mailto:jokerdab@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 7 9-7"/></svg>jokerdab@gmail.com</a>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><path d="M6 3h3l2 5-2 1a12 12 0 0 0 6 6l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2z"/></svg>+7 915 810 84 08</span>
+      <a class="chip" href="https://www.linkedin.com/in/daniil-polozov-b3208a191"><svg viewBox="0 0 24 24" fill="#3b82f6"><path d="M4.7 3.3A2.2 2.2 0 0 0 2.5 5.5v13a2.2 2.2 0 0 0 2.2 2.2h13a2.2 2.2 0 0 0 2.2-2.2v-13a2.2 2.2 0 0 0-2.2-2.2h-13zM8.3 18.2H5.7V9.4h2.6v8.8zM7 8.2a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm11.2 10h-2.6v-4.3c0-1 0-2.3-1.4-2.3s-1.6 1.1-1.6 2.2v4.4H10v-8.8h2.5v1.2h.1c.3-.7 1.2-1.4 2.5-1.4 2.7 0 3.2 1.8 3.2 4.1v4.9z"/></svg>linkedin.com/in/daniil-polozov-b3208a191</a>
+      <a class="chip" href="https://t.me/jokerdabro"><svg viewBox="0 0 24 24" fill="#3b82f6"><path d="M21.4 3.6 2.9 10.8c-1.1.4-1.1 1.6 0 1.9l4.6 1.5 1.8 5.6c.2.7 1.1.9 1.6.4l2.6-2.4 4.9 3.6c.6.4 1.5.1 1.6-.6l3.1-15c.2-1-.7-1.6-1.7-1.2zM9.8 14.4l8.3-7.3-6.6 8.3-.4 3-1.3-4z"/></svg>jokerdabro</a>
+    </div>
+  </header>
+
+  <p class="summary"><b>Product leader with 8 years in fintech, AI, EdTech, and e-commerce.</b> I set product strategy, rebuild platforms, and lead cross-functional teams of up to 74 people, from 0→1 launches to products with millions of users.</p>
+
+  <section class="bento">
+    <div class="tile hero">
+      <p class="lead"><b>Education that drives trades.</b> Measured by trades, not views.</p>
+      <div class="window">
+        <div class="window__bar">
+          <i class="dot" style="background:#ff5f57"></i><i class="dot" style="background:#febc2e"></i><i class="dot" style="background:#28c840"></i>
+          <span class="window__title">T-Bank Investments · Education</span>
+        </div>
+        <div class="window__body">
+          <div class="metric">
+            <span>MAU, one year</span>
+            <b>800K–1M</b>
+            <i class="badge">3.3×</i>
+          </div>
+          <svg viewBox="0 0 300 100" preserveAspectRatio="none">
+            <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b82f6" stop-opacity="0.18"/><stop offset="1" stop-color="#3b82f6" stop-opacity="0"/></linearGradient></defs>
+            <path d="M0 80 C 70 78, 120 66, 170 50 S 260 16, 300 12 L 300 100 L 0 100 Z" fill="url(#g)"/>
+            <path d="M0 80 C 70 78, 120 66, 170 50 S 260 16, 300 12" fill="none" stroke="#3b82f6" stroke-width="2"/>
+            <circle cx="296" cy="12.5" r="3.5" fill="#3b82f6"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="tile">
+      <p class="lead"><b>Wealth manager time</b> per client, with a multi-agent AI system.</p>
+      <p class="stat">−30%</p>
+    </div>
+
+    <div class="tile">
+      <p class="lead"><b>Advice by segment</b>, each with its own scenario.</p>
+      <ul class="checks"><li>Mass Market</li><li>Affluent</li><li>HNWI</li></ul>
+      <div class="seg-row"><span>Segment revenue</span><i class="badge">+10–15%</i></div>
+    </div>
+
+    <div class="tile">
+      <p class="lead"><b>Faster delivery</b> after moving the platform off legacy.</p>
+      <p class="stat">2.5<small>×</small></p>
+    </div>
+
+    <div class="tile object">
+      <p class="lead"><b>Savings marathon</b></p>
+      <div class="receipt">
+        <div class="row"><span>Into customer savings</span><span>T-Bank</span></div>
+        <b>~$43M</b>
+        <i class="ok">One campaign</i>
+      </div>
+    </div>
+  </section>
+
+  <h2>Experience</h2>
+
+  <article class="card card--split">
+    <div class="card__head"><h3><a href="https://www.linkedin.com/company/tinkoff/home/">T-Bank</a> <span>· Fintech · 54M+ active customers</span></h3><span class="dates">2022 — present</span></div>
+    <p class="about">Three lines of business, 74 people in 8 teams.</p>
+
+    <div class="line">
+      <div class="line__head"><h4>Head of Product · <em>Investments: advisory and education</em></h4><span class="team">30 people · 3 teams</span></div>
+      <p class="intro">Investment advice for Mass Market, Affluent, and HNWI clients, and investment education inside the investment app. Goal: grow segment revenue and turn learners into active investors.</p>
+      <ul>
+        <li>Built ML recommendations and a multi-agent AI system for wealth managers: ~100 Private clients onboarded, 3–5K Premium clients use the advice weekly, <b>2× more new clients</b>.</li>
+        <li>Turned education into part of the investment journey: reach 1.5M → 5M, trading activity 2.4–3×, the business line reached break-even.</li>
+        <li>Launched an investment trainer: <b>730K+ users in 1.5 months</b>. finAward’26, best investment product of 2026.</li>
+      </ul>
+    </div>
+
+    <div class="line">
+      <div class="line__head"><h4>Product Lead · <em>Origination platform</em></h4><span class="team">32 people · 4 teams</span></div>
+      <p class="intro">The platform every business line uses to open its products in one click: cards, investments, SIM, insurance. Goal: more products per customer and faster delivery for every business line.</p>
+      <ul>
+        <li>Replaced one-off opening flows with reusable modules: <b>products per customer 1.5 → 2.5</b>, product usage after opening +10 pp.</li>
+        <li>Gave business lines a predictable release plan and set quarterly goals by business value: internal CSAT 6 → 8 out of 10, team efficiency +20%.</li>
+      </ul>
+    </div>
+
+    <div class="line">
+      <div class="line__head"><h4>Product Lead · <em>AI support platform</em></h4><span class="team">12 people</span></div>
+      <p class="intro">Voice and text bots, ML pipelines, and process automation for customer support across the bank. Goal: automate more requests and answer faster at lower support cost.</p>
+      <ul>
+        <li>Merged 3–4 microservices into one platform for every business line: <b>AI-automated support +16 pp</b>, delivery 1.5× faster.</li>
+        <li>Launched ML classification and routing with A/B tests: first response 1.5 min → 15–20 s, support staff costs −10–15%.</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="card__head"><h3><a href="https://www.linkedin.com/company/g1tjob/home/">GitJob</a> <span>· HR-tech · Senior Product Manager</span></h3><span class="dates">2021 — 2022</span></div>
+    <p class="about">B2B platform that finds developers by their GitHub profiles and code. Goal: launch from zero and close the first B2B deals. Cross-functional team of 6.</p>
+    <ul>
+      <li>Wrote the PRD and designed the ranking, checked with custdev and A/B tests: <b>0 → 3M searchable candidates in 4 months</b>.</li>
+      <li>Shipped the MVP in 4 months and ran sales myself: first B2B deal in the first month after launch, then 8 more.</li>
+    </ul>
+  </article>
+
+  <article class="card">
+    <div class="card__head"><h3><a href="https://www.linkedin.com/company/интеллектуальный-регистратор-ireg/home/">iReg</a> <span>· Legal-tech · Senior Product Manager</span></h3><span class="dates">2020 — 2022</span></div>
+    <p class="about">Copyright protection in 100+ countries. Goal: grow the customer base and the average order value. Cross-functional team of 12.</p>
+    <ul>
+      <li>A/B-tested the pricing model, from one-off purchase to subscription and B2B: <b>average order value 5×</b>, customer base 2.5–3×.</li>
+      <li>Rebuilt onboarding and content for each segment: purchases per customer 1 → 2.5. Entered the UK, Poland, Brazil, and China via <a href="https://news.microsoft.com/ru-ru/microsoft-ey-startupbootcamp-global-pilots/">Microsoft, EY, and Startupbootcamp</a>.</li>
+    </ul>
+  </article>
+
+  <article class="card">
+    <div class="card__head"><h3>Pandao (<a href="https://www.linkedin.com/company/vkcompany/people/">Mail.ru</a>) <span>· E-commerce · Product Manager</span></h3><span class="dates">2018 — 2020</span></div>
+    <p class="about">Top-2 marketplace for goods from China across the CIS. Goal: grow the audience and checkout conversion. Cross-functional team of ~40.</p>
+    <ul>
+      <li>A/B-tested search ranking, cart, and checkout: <b>checkout conversion +3 pp</b> in the app, +1.8 pp on mobile web, average order value +60%.</li>
+      <li>Grew acquisition, ASO, and retention: MAU 2M → 4.7M.</li>
+    </ul>
+  </article>
+
+  <div class="foot">
+    <article class="card">
+      <p class="label">Education and certificates</p>
+      <div class="kv"><b>Software engineering</b><span>2025</span></div>
+      <p class="sub">Ivanovo State Power Engineering University (IGEU)</p>
+      <div class="kv"><b>Product Heroes</b><span>Jan 2026</span></div>
+      <p class="sub">Heroes.camp</p>
+      <div class="kv"><b>Data-driven product management</b><span>Jun 2019</span></div>
+      <p class="sub">GoPractice</p>
+    </article>
+    <article class="card">
+      <p class="label">Core skills</p>
+      <ul class="pills">
+        <li>Product strategy and P&amp;L</li>
+        <li>Discovery and delivery</li>
+        <li>A/B tests and analytics</li>
+        <li>AI products and ML</li>
+        <li>Platforms and scale</li>
+        <li>Monetization and retention</li>
+        <li>Team building</li>
+      </ul>
+    </article>
+  </div>
+
+</div>
+</body>
+</html>
